@@ -1,0 +1,95 @@
+:root {
+  /* Brand Colors - Updated for Learning Platform */
+  --charcoal: #191919;
+  --soft-ivory: #FFF8F2;
+  --blush-rose: #F9E3E8;
+  --deep-wine: #5C1225;
+  --rose-gold: #C48A7A;
+  /* Learning Platform Accents */
+  --learning-blue: #4A90A4;
+  --learning-light-blue: #E8F4F8;
+  --learning-teal: #2C7A7B;
+
+  font-family: 'Lato', 'Open Sans', 'Arial', sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--charcoal);
+  background-color: var(--soft-ivory);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: var(--deep-wine);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+a {
+  font-weight: 500;
+  color: var(--deep-wine);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--rose-gold);
+}
+
+button {
+  border-radius: 6px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: 'Lato', sans-serif;
+  background-color: var(--deep-wine);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background-color: #7a1a35;
+  transform: translateY(-1px);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px solid var(--rose-gold);
+  outline-offset: 2px;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}

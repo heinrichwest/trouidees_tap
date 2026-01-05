@@ -1,0 +1,240 @@
+.courses-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  background: white;
+}
+
+.back-button {
+  background: transparent;
+  color: #666;
+  border: 1px solid #e0e0e0;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 2rem;
+}
+
+.back-button:hover {
+  background: #f5f5f5;
+  border-color: #E91E63;
+  color: #191919;
+}
+
+.courses-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.courses-header h2 {
+  font-family: 'Playfair Display', serif;
+  color: #191919;
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.courses-subtitle {
+  font-family: 'Lato', sans-serif;
+  color: #191919;
+  font-size: 1.1rem;
+  margin: 0;
+  font-style: italic;
+}
+
+.category-filter {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.category-button {
+  background: white;
+  color: #666;
+  border: 1px solid #e0e0e0;
+  padding: 0.6rem 1.2rem;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Lato', sans-serif;
+}
+
+.category-button:hover {
+  background: #f5f5f5;
+  border-color: #E91E63;
+  color: #191919;
+}
+
+.category-button.active {
+  background: #E91E63;
+  color: white;
+  border-color: #E91E63;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.course-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.course-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #E91E63;
+}
+
+.course-thumbnail {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #F9E3E8;
+  border-radius: 2px;
+}
+
+.course-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-category {
+  font-family: 'Lato', sans-serif;
+  color: #666;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.course-title {
+  font-family: 'Playfair Display', serif;
+  color: #191919;
+  font-size: 1.4rem;
+  margin: 0 0 0.75rem 0;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.course-description {
+  font-family: 'Lato', sans-serif;
+  color: #191919;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  flex: 1;
+}
+
+.course-progress-section {
+  margin-bottom: 1.5rem;
+}
+
+.course-progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.progress-text {
+  font-family: 'Lato', sans-serif;
+  color: #191919;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.progress-percentage {
+  font-family: 'Lato', sans-serif;
+  color: #E91E63;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.course-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #F9E3E8;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.course-progress-fill {
+  height: 100%;
+  background: #E91E63;
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.course-button {
+  background: #E91E63;
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 2px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Lato', sans-serif;
+  width: 100%;
+}
+
+.course-button:hover {
+  background: #C2185B;
+}
+
+.no-courses {
+  text-align: center;
+  padding: 3rem;
+  color: #191919;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .courses-container {
+    padding: 1rem;
+  }
+
+  .courses-header h2 {
+    font-size: 2rem;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .category-filter {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .category-button {
+    flex-shrink: 0;
+  }
+}
+
