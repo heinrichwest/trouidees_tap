@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './Courses.css';
+import '../styles/Courses.css';
 
 interface CoursesProps {
   onBack?: () => void;
@@ -17,83 +17,91 @@ interface Course {
 }
 
 export default function Courses({ onBack }: CoursesProps) {
-  const [courses, setCourses] = useState<Course[]>([
+  // Static course data (no state needed yet)
+  const courses: Course[] = [
     {
       id: '1',
       title: 'Troubeplanning Grondbeginsels',
-      description: 'Leer die basiese beginsels van troubeplanning, van datumkeuse tot begroting.',
+      description:
+        'Leer die basiese beginsels van troubeplanning, van datumkeuse tot begroting.',
       category: 'Beplanning',
       progress: 0,
       totalLessons: 12,
       completedLessons: 0,
-      thumbnail: '📅'
+      thumbnail: '📅',
     },
     {
       id: '2',
       title: 'Venue Keuse en Beplanning',
-      description: 'Ontdek hoe om die perfekte venue te kies en te beplan vir jou spesiale dag.',
+      description:
+        'Ontdek hoe om die perfekte venue te kies en te beplan vir jou spesiale dag.',
       category: 'Venue',
       progress: 25,
       totalLessons: 8,
       completedLessons: 2,
-      thumbnail: '🏛️'
+      thumbnail: '🏛️',
     },
     {
       id: '3',
       title: 'Trou Décor en Styling',
-      description: 'Kry kreatiewe idees vir troudécor en leer hoe om jou visie te verwesenlik.',
+      description:
+        'Kry kreatiewe idees vir troudécor en leer hoe om jou visie te verwesenlik.',
       category: 'Décor',
       progress: 0,
       totalLessons: 10,
       completedLessons: 0,
-      thumbnail: '💐'
+      thumbnail: '💐',
     },
     {
       id: '4',
       title: 'Katering en Menu Beplanning',
-      description: 'Leer hoe om die regte katering te kies en \'n perfekte menu saam te stel.',
+      description:
+        'Leer hoe om die regte katering te kies en ’n perfekte menu saam te stel.',
       category: 'Katering',
       progress: 50,
       totalLessons: 6,
       completedLessons: 3,
-      thumbnail: '🍽️'
+      thumbnail: '🍽️',
     },
     {
       id: '5',
       title: 'Fotografie en Videografie',
-      description: 'Ontdek hoe om die regte fotograaf en videograaf te kies vir jou troue.',
+      description:
+        'Ontdek hoe om die regte fotograaf en videograaf te kies vir jou troue.',
       category: 'Verskaffers',
       progress: 0,
       totalLessons: 7,
       completedLessons: 0,
-      thumbnail: '📸'
+      thumbnail: '📸',
     },
     {
       id: '6',
       title: 'Finansiële Beplanning vir Troues',
-      description: 'Leer hoe om \'n begroting op te stel en jou troue finansieel te beplan.',
+      description:
+        'Leer hoe om ’n begroting op te stel en jou troue finansieel te beplan.',
       category: 'Finansies',
       progress: 0,
       totalLessons: 9,
       completedLessons: 0,
-      thumbnail: '💰'
+      thumbnail: '💰',
     },
-  ]);
+  ];
 
   const [selectedCategory, setSelectedCategory] = useState<string>('Alles');
+
   const categories = ['Alles', ...Array.from(new Set(courses.map(c => c.category)))];
 
-  const filteredCourses = selectedCategory === 'Alles' 
-    ? courses 
-    : courses.filter(c => c.category === selectedCategory);
+  const filteredCourses =
+    selectedCategory === 'Alles'
+      ? courses
+      : courses.filter(c => c.category === selectedCategory);
 
   const handleCourseClick = (courseId: string) => {
-    // This would navigate to course details in a real app
-    console.log('Opening course:', courseId);
-    // For now, we'll just show an alert
     const course = courses.find(c => c.id === courseId);
     if (course) {
-      alert(`Opening course: ${course.title}\n\nThis would navigate to the course content in a full implementation.`);
+      alert(
+        `Opening course: ${course.title}\n\nHier sal die kursusinhoud oopmaak in die finale weergawe.`
+      );
     }
   };
 
@@ -104,6 +112,7 @@ export default function Courses({ onBack }: CoursesProps) {
           ← Terug na Tuis
         </button>
       )}
+
       <div className="courses-header">
         <h2>📚 My Kursusse</h2>
         <p className="courses-subtitle">
@@ -115,7 +124,9 @@ export default function Courses({ onBack }: CoursesProps) {
         {categories.map(category => (
           <button
             key={category}
-            className={`category-button ${selectedCategory === category ? 'active' : ''}`}
+            className={`category-button ${
+              selectedCategory === category ? 'active' : ''
+            }`}
             onClick={() => setSelectedCategory(category)}
           >
             {category}
@@ -124,30 +135,32 @@ export default function Courses({ onBack }: CoursesProps) {
       </div>
 
       <div className="courses-grid">
-        {filteredCourses.map((course) => (
+        {filteredCourses.map(course => (
           <div
             key={course.id}
             className="course-card"
             onClick={() => handleCourseClick(course.id)}
           >
             <div className="course-thumbnail">{course.thumbnail}</div>
+
             <div className="course-content">
               <div className="course-category">{course.category}</div>
               <h3 className="course-title">{course.title}</h3>
               <p className="course-description">{course.description}</p>
-              
+
               <div className="course-progress-section">
                 <div className="course-progress-info">
-                  <span className="progress-text">
+                  <span>
                     {course.completedLessons} / {course.totalLessons} Lesse
                   </span>
-                  <span className="progress-percentage">{course.progress}%</span>
+                  <span>{course.progress}%</span>
                 </div>
+
                 <div className="course-progress-bar">
                   <div
                     className="course-progress-fill"
                     style={{ width: `${course.progress}%` }}
-                  ></div>
+                  />
                 </div>
               </div>
 
@@ -167,4 +180,3 @@ export default function Courses({ onBack }: CoursesProps) {
     </div>
   );
 }
-

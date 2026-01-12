@@ -1,6 +1,7 @@
-import './HomePage.css';
+// src/pages/public/HomePage.tsx
+import '../../styles/HomePage.css';
 
-interface HomePageProps {
+export interface HomePageProps {
   onBrowseCourses: () => void;
   onRegister: () => void;
 }
@@ -9,8 +10,8 @@ export default function HomePage({ onBrowseCourses, onRegister }: HomePageProps)
   return (
     <div className="homepage">
       <div className="homepage-content">
-        {/* Three Column Layout */}
         <div className="three-column-layout">
+          
           {/* Left Column */}
           <div className="home-column left-column">
             <div className="column-image">
@@ -29,7 +30,9 @@ export default function HomePage({ onBrowseCourses, onRegister }: HomePageProps)
           {/* Center Column */}
           <div className="home-column center-column">
             <div className="center-content">
-              <h2 className="center-heading">ONS NUWE GEVORDERDE LEER PLATFORM</h2>
+              <h2 className="center-heading">
+                ONS NUWE GEVORDERDE LEER PLATFORM
+              </h2>
               <div className="center-logo-section">
                 <div className="logo-graphic">
                   <div className="graphic-building">📖</div>
@@ -68,17 +71,20 @@ export default function HomePage({ onBrowseCourses, onRegister }: HomePageProps)
         {/* Bottom Section */}
         <div className="homepage-bottom">
           <h2 className="bottom-heading">
-            <span className="heading-pink">Liewe</span> <span className="heading-black">amper student</span>
+            <span className="heading-pink">Liewe</span>{' '}
+            <span className="heading-black">amper student</span>
           </h2>
           <div className="bottom-text">
             <p>
-              Kan jy glo jy is hier en begin jou leerreis? Ons is baie opgewonde saam met jou oor die 
-              opwindende avontuur waarop jy tans is! Ons leerplatform bied jou toegang tot kwaliteit kursusse 
-              wat jou sal help om te groei en te ontwikkel.
+              Kan jy glo jy is hier en begin jou leerreis? Ons is baie opgewonde
+              saam met jou oor die opwindende avontuur waarop jy tans is! Ons
+              leerplatform bied jou toegang tot kwaliteit kursusse wat jou sal
+              help om te groei en te ontwikkel.
             </p>
             <p>
-              Onthou jou leerpad is jou pad: of dit nou groot kursusse, klein modules, 10 of 100 lesse is, 
-              in jou eie tyd of volgens 'n skedule, dit maak nie saak nie, solank jy leer en groei!
+              Onthou jou leerpad is jou pad: of dit nou groot kursusse, klein
+              modules, 10 of 100 lesse is, in jou eie tyd of volgens 'n skedule,
+              dit maak nie saak nie, solank jy leer en groei!
             </p>
           </div>
         </div>
@@ -86,6 +92,3 @@ export default function HomePage({ onBrowseCourses, onRegister }: HomePageProps)
     </div>
   );
 }
-
-
-

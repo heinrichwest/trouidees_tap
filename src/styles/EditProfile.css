@@ -1,0 +1,79 @@
+/* EditProfile.css */
+
+.edit-profile {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Lato', sans-serif;
+}
+
+.edit-profile h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.edit-profile input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.edit-profile input:focus {
+  border-color: #e91e63;
+  box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.1);
+  outline: none;
+}
+
+.edit-profile button {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.edit-profile button:first-of-type {
+  background: #e91e63;
+  color: #fff;
+}
+
+.edit-profile button:first-of-type:hover {
+  background: #d81b60;
+}
+
+.edit-profile button:last-of-type {
+  background: #f0f0f0;
+  color: #333;
+  margin-left: 0.5rem;
+}
+
+.edit-profile button:last-of-type:hover {
+  background: #e0e0e0;
+}
+
+@media (max-width: 500px) {
+  .edit-profile {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .edit-profile input {
+    font-size: 0.9rem;
+  }
+
+  .edit-profile button {
+    font-size: 0.9rem;
+    padding: 0.65rem 1rem;
+  }
+}

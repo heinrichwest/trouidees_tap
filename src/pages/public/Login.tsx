@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase/config';
-import './Login.css';
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword
+} from 'firebase/auth';
+import { auth } from '../../firebase/config';
+import '../../styles/Login.css';
 
-interface LoginProps {
-  onLoginSuccess: () => void;
-}
-
-export default function Login({ onLoginSuccess }: LoginProps) {
+export default function Login() {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -32,23 +31,21 @@ export default function Login({ onLoginSuccess }: LoginProps) {
       } else {
         await createUserWithEmailAndPassword(auth, email, password);
       }
-      onLoginSuccess();
+      // ✅ No callback needed — auth state listener will handle it
     } catch (err: any) {
       let errorMessage = 'An error occurred. Please try again.';
       if (err.code === 'auth/user-not-found') {
-        errorMessage = 'Gebruiker nie gevind nie. Probeer om \'n rekening te skep.';
+        errorMessage = 'Gebruiker nie gevind nie. Skep asseblief \'n rekening.';
       } else if (err.code === 'auth/wrong-password') {
         errorMessage = 'Verkeerde wagwoord. Probeer weer.';
       } else if (err.code === 'auth/email-already-in-use') {
-        errorMessage = 'Hierdie e-pos word reeds gebruik. Teken eerder in.';
+        errorMessage = 'Hierdie e-pos word reeds gebruik.';
       } else if (err.code === 'auth/weak-password') {
-        errorMessage = 'Wagwoord is te swak. Gebruik minstens 6 karakters.';
+        errorMessage = 'Wagwoord is te swak (minstens 6 karakters).';
       } else if (err.code === 'auth/invalid-email') {
         errorMessage = 'Ongeldige e-pos adres.';
       } else if (err.code === 'auth/invalid-credential') {
-        errorMessage = 'Verkeerde e-pos of wagwoord. Probeer weer of skep \'n nuwe rekening.';
-      } else if (err.message) {
-        errorMessage = err.message;
+        errorMessage = 'Verkeerde e-pos of wagwoord.';
       }
       setError(errorMessage);
     } finally {
@@ -61,9 +58,11 @@ export default function Login({ onLoginSuccess }: LoginProps) {
       <div className="login-card">
         <div className="login-header">
           <h2>Welkom by Trou Idees</h2>
-          <p className="login-tagline">Gratis toegang tot ons kursusse en leerhulpbronne</p>
+          <p className="login-tagline">
+            Gratis toegang tot ons kursusse en leerhulpbronne
+          </p>
         </div>
-        
+
         <form onSubmit={handleSubmit} className="login-form">
           <div className="form-group">
             <label htmlFor="email">E-pos</label>
@@ -73,44 +72,44 @@ export default function Login({ onLoginSuccess }: LoginProps) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              placeholder="jou@epos.co.za"
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="password">Wagwoord</label>
             <div className="password-input-wrapper">
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? 'text' : 'password'}
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                placeholder="••••••••"
                 minLength={6}
               />
               <button
                 type="button"
                 className="password-toggle"
                 onClick={() => setShowPassword(!showPassword)}
-                aria-label={showPassword ? "Versteek wagwoord" : "Wys wagwoord"}
               >
-                {showPassword ? "🙈" : "👁️"}
+                {showPassword ? '🙈' : '👁️'}
               </button>
             </div>
           </div>
 
           {error && <div className="error-message">{error}</div>}
 
-          <button type="submit" className="login-button" disabled={loading}>
-            {loading ? 'Wag asseblief...' : isLogin ? 'Teken In' : 'Skep Rekening'}
+          <button type="submit" disabled={loading}>
+            {loading
+              ? 'Wag asseblief...'
+              : isLogin
+              ? 'Teken In'
+              : 'Skep Rekening'}
           </button>
         </form>
 
         <div className="login-footer">
           <button
             type="button"
-            className="toggle-button"
             onClick={() => {
               setIsLogin(!isLogin);
               setError('');
@@ -118,11 +117,10 @@ export default function Login({ onLoginSuccess }: LoginProps) {
           >
             {isLogin
               ? "Nog nie 'n rekening nie? Skep een"
-              : 'Het jy reeds \'n rekening? Teken in'}
+              : "Het jy reeds 'n rekening? Teken in"}
           </button>
         </div>
       </div>
     </div>
   );
 }
-
